@@ -1,10 +1,10 @@
 using EcommerceApi.Data;
+using EcommerceApi.Services.Implementations;
+using EcommerceApi.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services
 
 builder.Services.AddControllers();
 
@@ -17,9 +17,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     );
 });
 
-var app = builder.Build();
+builder.Services.AddScoped<IUserService, UserService>();
 
-// Configure pipeline
+builder.Services.AddScoped<IProductService, ProductService>();
+
+var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {

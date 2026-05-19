@@ -22,9 +22,8 @@ public class User
     [MaxLength(200)]
     public string Password { get; set; } = string.Empty;
 
-    [Phone]
-    [MaxLength(20)]
-    public string? PhoneNumber { get; set; }
+    [Required]
+public string PhoneNumber { get; set; } = string.Empty;
 
     [Required]
     [MaxLength(100)]
