@@ -1,9 +1,7 @@
 namespace EcommerceApi.DTOs.Product;
 
-public class ProductResponseDto
+public class UpdateProductRequestDto
 {
-    public Guid Id { get; set; }
-
     public string Name { get; set; } = string.Empty;
 
     public string? Description { get; set; }
@@ -13,10 +11,4 @@ public class ProductResponseDto
     public int Stock { get; set; }
 
     public bool IsAvailable { get; set; }
-
-    public Guid UserId { get; set; }
-
-    public string UserName { get; set; } = string.Empty;
-
-    public DateTime CreatedAt { get; set; }
 }

@@ -1,15 +1,16 @@
-using EcommerceApi.Models;
-using EcommerceApi.Models.Entities;
+using EcommerceApi.DTOs.Product;
 
 namespace EcommerceApi.Services.Interfaces;
 
 public interface IProductService
 {
-    Task<List<Product>> GetAllProductsAsync();
+    Task<List<ProductResponseDto>> GetAllProductsAsync();
 
-    Task<Product?> GetProductByIdAsync(int id);
+    Task<ProductResponseDto?> GetProductByIdAsync(Guid id);
 
-    Task<Product> CreateProductAsync(Product product);
+    Task<ProductResponseDto> CreateProductAsync(CreateProductRequestDto dto);
 
-    Task<bool> DeleteProductAsync(int id);
+    Task<ProductResponseDto?> UpdateProductAsync(Guid id, UpdateProductRequestDto dto);
+
+    Task<bool> DeleteProductAsync(Guid id);
 }
