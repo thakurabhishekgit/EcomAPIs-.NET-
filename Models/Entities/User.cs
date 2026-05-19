@@ -36,6 +36,6 @@ public class User
 
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-    // Navigation Property
+   
     public List<Product> Products { get; set; } = new();
 }
