@@ -1,11 +1,14 @@
 using EcommerceApi.Data;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services
 
 builder.Services.AddControllers();
+
+builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -16,7 +19,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure pipeline
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+
+    app.MapScalarApiReference();
+}
 
 app.UseAuthorization();
 
