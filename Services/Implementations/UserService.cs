@@ -105,7 +105,7 @@ public class UserService : IUserService
             IsActive = user.IsActive,
             CreatedAt = user.CreatedAt,
             UpdatedAt = user.UpdatedAt,
-            UpdatedAtIST = user.CreatedAtIST
+            UpdatedAtIST = user.UpdatedAtIST
         };
     }
 

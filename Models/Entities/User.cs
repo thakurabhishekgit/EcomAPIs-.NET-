@@ -40,26 +40,32 @@ public string PhoneNumber { get; set; } = string.Empty;
     public List<Product> Products { get; set; } = new();
 
     
-    public string CreatedAtIST 
-        {
-            get
-            {
-                var istTime = TimeZoneInfo.ConvertTimeFromUtc(CreatedAt, 
-                    TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"));
+    // public string CreatedAtIST 
+    //     {
+    //         get
+    //         {
+    //             var istTime = TimeZoneInfo.ConvertTimeFromUtc(CreatedAt, 
+    //                 TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"));
 
-                return istTime.ToString("dd MMM yyyy hh:mm tt", CultureInfo.InvariantCulture);
-            }
-        }
+    //             return istTime.ToString("dd MMM yyyy hh:mm tt", CultureInfo.InvariantCulture);
+    //         }
+    //     }
 
-        public string UpdatedAtIST
-        {
-            get
-            {
-                var istTime = TimeZoneInfo.ConvertTimeFromUtc(UpdatedAt, 
-                    TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"));
+    //     public string UpdatedAtIST
+    //     {
+    //         get
+    //         {
+    //             var istTime = TimeZoneInfo.ConvertTimeFromUtc(UpdatedAt, 
+    //                 TimeZoneInfo.FindSystemTimeZoneById("India Standard Time"));
 
-                return istTime.ToString("dd MMM yyyy hh:mm tt", CultureInfo.InvariantCulture);
-            }
-        }
+    //             return istTime.ToString("dd MMM yyyy hh:mm tt", CultureInfo.InvariantCulture);
+    //         }
+    //     }
+
+    
+ public string CreatedAtIST { get; set; } = string.Empty;
+
+    public string UpdatedAtIST { get; set; } = string.Empty;
+
 
 }
