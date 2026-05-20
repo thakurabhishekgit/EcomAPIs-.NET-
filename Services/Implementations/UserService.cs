@@ -24,6 +24,7 @@ public class UserService : IUserService
                 Id = user.Id,
                 Name = user.Name,
                 Email = user.Email,
+                Password = user.Password,
                 PhoneNumber = user.PhoneNumber,
                 City = user.City,
                 IsActive = user.IsActive,
@@ -59,7 +60,7 @@ public class UserService : IUserService
         {
             Name = dto.Name,
             Email = dto.Email,
-            Password = dto.Password,
+            Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
             PhoneNumber = dto.PhoneNumber,
             City = dto.City
         };
@@ -101,6 +102,7 @@ public class UserService : IUserService
             Id = user.Id,
             Name = user.Name,
             Email = user.Email,
+            
             PhoneNumber = user.PhoneNumber,
             City = user.City,
             IsActive = user.IsActive,
