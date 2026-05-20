@@ -18,5 +18,7 @@ public class UserResponseDtoForUpdate
 
     public DateTime UpdatedAt { get; set; } 
 
+    public String UpdatedAtIST {get; set;} = string.Empty;
+
     
 }

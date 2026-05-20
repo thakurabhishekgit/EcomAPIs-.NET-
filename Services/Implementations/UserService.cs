@@ -104,7 +104,8 @@ public class UserService : IUserService
             City = user.City,
             IsActive = user.IsActive,
             CreatedAt = user.CreatedAt,
-            UpdatedAt = user.UpdatedAt
+            UpdatedAt = user.UpdatedAt,
+            UpdatedAtIST = user.CreatedAtIST
         };
     }
 
