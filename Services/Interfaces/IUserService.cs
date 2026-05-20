@@ -10,7 +10,7 @@ public interface IUserService
 
     Task<UserResponseDto> CreateUserAsync(CreateUserRequestDto dto);
 
-    Task<UserResponseDto?> UpdateUserAsync(Guid id, UpdateUserRequestDto dto);
+    Task<UserResponseDtoForUpdate?> UpdateUserAsync(Guid id, UpdateUserRequestDto dto);
 
     Task<bool> DeleteUserAsync(Guid id);
 }

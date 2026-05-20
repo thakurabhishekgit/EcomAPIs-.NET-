@@ -1,6 +1,6 @@
 namespace EcommerceApi.DTOs.User;
 
-public class UserResponseDto
+public class UserResponseDtoForUpdate
 {
     public Guid Id { get; set; }
 
@@ -15,6 +15,8 @@ public class UserResponseDto
     public bool IsActive { get; set; }
 
     public DateTime CreatedAt { get; set; }
+
+    public DateTime UpdatedAt { get; set; } 
 
     
 }

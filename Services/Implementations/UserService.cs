@@ -79,7 +79,7 @@ public class UserService : IUserService
         };
     }
 
-    public async Task<UserResponseDto?> UpdateUserAsync(Guid id, UpdateUserRequestDto dto)
+    public async Task<UserResponseDtoForUpdate?> UpdateUserAsync(Guid id, UpdateUserRequestDto dto)
     {
         var user = await _context.Users.FindAsync(id);
 
@@ -95,7 +95,7 @@ public class UserService : IUserService
 
         await _context.SaveChangesAsync();
 
-        return new UserResponseDto
+        return new UserResponseDtoForUpdate
         {
             Id = user.Id,
             Name = user.Name,
@@ -103,7 +103,8 @@ public class UserService : IUserService
             PhoneNumber = user.PhoneNumber,
             City = user.City,
             IsActive = user.IsActive,
-            CreatedAt = user.CreatedAt
+            CreatedAt = user.CreatedAt,
+            UpdatedAt = user.UpdatedAt
         };
     }
 
