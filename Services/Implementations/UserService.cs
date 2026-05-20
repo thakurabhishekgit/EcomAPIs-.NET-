@@ -1,4 +1,5 @@
 using EcommerceApi.Data;
+using EcommerceApi.DTOs.Product;
 using EcommerceApi.DTOs.User;
 using EcommerceApi.Models.Entities;
 using EcommerceApi.Services.Interfaces;
@@ -123,5 +124,43 @@ public class UserService : IUserService
         await _context.SaveChangesAsync();
 
         return true;
+    }
+
+    public async Task<UserResponeWithProudct?> GetUserWithProductAsync(Guid id)
+    {
+        var user = await _context.Users.FindAsync(id);
+
+        if (user == null)
+        {
+            return null;
+        }
+
+        return new UserResponeWithProudct
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email,
+            PhoneNumber = user.PhoneNumber,
+            City = user.City,
+            IsActive = user.IsActive,
+            
+            
+            Products = await _context.Products
+                        .Where(p => p.UserId == user.Id)  
+                        .Select(p => new ProductResponseDto   
+                        {
+                            Id = p.Id,
+                            Name = p.Name,
+                            Description = p.Description,
+                            Price = p.Price,
+                            Stock = p.Stock,
+                            IsAvailable = p.IsAvailable,
+                            UserId = p.UserId,
+                            UserName = p.User.Name,
+                            CreatedAt = p.CreatedAt
+                        })
+                        .ToListAsync()
+
+        };
     }
 }

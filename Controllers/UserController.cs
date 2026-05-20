@@ -78,5 +78,22 @@ public class UserController : ControllerBase
         {
             message = "User deleted successfully"
         });
+
+
+    }
+    [HttpGet("getUserProducts/{id}")]
+    public async Task<IActionResult> getUserWithProducts (Guid id)
+    {
+        var userWithProduct = await _userService.GetUserWithProductAsync(id);
+
+        if (userWithProduct == null)
+        {
+            return NotFound(new
+            {
+                message = "User not found to get Products"
+            });
+        }
+
+        return Ok(userWithProduct);
     }
 }

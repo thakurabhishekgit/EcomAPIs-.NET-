@@ -13,4 +13,8 @@ public interface IUserService
     Task<UserResponseDtoForUpdate?> UpdateUserAsync(Guid id, UpdateUserRequestDto dto);
 
     Task<bool> DeleteUserAsync(Guid id);
+
+    Task<UserResponeWithProudct?> GetUserWithProductAsync(Guid id); 
+
+
 }
