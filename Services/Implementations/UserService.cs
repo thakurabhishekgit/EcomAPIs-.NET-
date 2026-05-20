@@ -61,7 +61,7 @@ public class UserService : IUserService
             Name = dto.Name,
             Email = dto.Email,
             Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
-            PhoneNumber = dto.PhoneNumber,
+            PhoneNumber = dto.PhoneNumber ?? string.Empty,
             City = dto.City
         };
 
@@ -90,10 +90,11 @@ public class UserService : IUserService
             return null;
         }
 
-        user.Name = dto.Name;
-        user.City = dto.City;
-        user.PhoneNumber = dto.PhoneNumber;
+        user.Name = dto.Name ?? user.Name;
+        user.City = dto.City ?? user.City;
+        user.PhoneNumber = dto.PhoneNumber ?? user.PhoneNumber;
         user.UpdatedAt = DateTime.UtcNow;
+        user.Password = BCrypt.Net.BCrypt.HashPassword(dto.Password);
 
         await _context.SaveChangesAsync();
 
@@ -102,7 +103,7 @@ public class UserService : IUserService
             Id = user.Id,
             Name = user.Name,
             Email = user.Email,
-            
+            Password = user.Password,
             PhoneNumber = user.PhoneNumber,
             City = user.City,
             IsActive = user.IsActive,
