@@ -15,7 +15,7 @@ public class User
 
     [Required]
     [EmailAddress]
-    [MaxLength(200)]
+    [MaxLength(20)]
     public string Email { get; set; } = string.Empty;
 
     [Required]

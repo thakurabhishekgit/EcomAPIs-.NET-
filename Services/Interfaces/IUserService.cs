@@ -1,7 +1,6 @@
 using EcommerceApi.DTOs.User;
 
 namespace EcommerceApi.Services.Interfaces;
-
 public interface IUserService
 {
     Task<List<UserResponseDto>> GetAllUsersAsync();
@@ -18,3 +17,4 @@ public interface IUserService
 
 
 }
+//hba mba 
